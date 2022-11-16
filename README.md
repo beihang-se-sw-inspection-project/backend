@@ -12,7 +12,7 @@
         -Authorization: Bearer <accessToken>   (required on authenticated routes)
 
 #### ENDPOINTS:
-##### 1. Registration: {API_BASE_URL}/noauth/users
+##### 1. (POST) Registration: {API_BASE_URL}/noauth/users
     a) Sample Request:
         {
         "data": {
@@ -45,7 +45,7 @@
         }
     }
 
-##### 2. Login: {API_BASE_URL}/noauth/auth
+##### 2. (POST) Login: {API_BASE_URL}/noauth/auth
     a) Request Sample:
        {
             "data": {
