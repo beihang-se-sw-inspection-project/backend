@@ -2,7 +2,7 @@
 
 #### API Endpoints Simplified documentation
 
-    NOTE:
+#### NOTE:
     1. API base URL: https://bhinspector.2times180.com/api/v1
 
     2. Expected headers:
@@ -11,8 +11,8 @@
         -Content-Type: application/vnd.api+json  (required)
         -Authorization: Bearer <accessToken>   (required on authenticated routes)
 
-    ENDPOINTS:
-    1. Registration: {API_BASE_URL}/noauth/users
+#### ENDPOINTS:
+##### 1. Registration: {API_BASE_URL}/noauth/users
     a) Sample Request:
         {
         "data": {
@@ -45,7 +45,7 @@
         }
     }
 
-    2. Login: {API_BASE_URL}/noauth/auth
+#####2. Login: {API_BASE_URL}/noauth/auth
     a) Request Sample:
        {
             "data": {
