@@ -3,7 +3,7 @@
 #### API Endpoints Simplified documentation
 
 #### NOTE:
-    1. API base URL: https://bhinspector.2times180.com/api/v1
+    1. API base URL: https://bhinspector.2times180.com/public/api/v1
 
     2. Expected headers:
 
