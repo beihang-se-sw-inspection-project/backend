@@ -58,11 +58,7 @@ class PsrHttpFactory implements HttpMessageFactoryInterface
         );
 
         foreach ($symfonyRequest->headers->all() as $name => $value) {
-            try {
-                $request = $request->withHeader($name, $value);
-            } catch (\InvalidArgumentException $e) {
-                // ignore invalid header
-            }
+            $request = $request->withHeader($name, $value);
         }
 
         $body = $this->streamFactory->createStreamFromResource($symfonyRequest->getContent(true));
@@ -164,11 +160,7 @@ class PsrHttpFactory implements HttpMessageFactoryInterface
         }
 
         foreach ($headers as $name => $value) {
-            try {
-                $response = $response->withHeader($name, $value);
-            } catch (\InvalidArgumentException $e) {
-                // ignore invalid header
-            }
+            $response = $response->withHeader($name, $value);
         }
 
         $protocolVersion = $symfonyResponse->getProtocolVersion();

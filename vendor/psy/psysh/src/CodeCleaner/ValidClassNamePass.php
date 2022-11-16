@@ -263,8 +263,6 @@ class ValidClassNamePass extends NamespaceAwarePass
      * @deprecated No longer used. Scope type should be passed into ensureCanDefine directly.
      * @codeCoverageIgnore
      *
-     * @throws FatalErrorException
-     *
      * @param Stmt $stmt
      *
      * @return string
@@ -278,8 +276,6 @@ class ValidClassNamePass extends NamespaceAwarePass
         } elseif ($stmt instanceof Trait_) {
             return self::TRAIT_TYPE;
         }
-
-        throw $this->createError('Unsupported statement type', $stmt);
     }
 
     /**

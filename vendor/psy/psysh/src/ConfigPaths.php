@@ -282,40 +282,6 @@ class ConfigPaths
     }
 
     /**
-     * Get a list of directories in PATH.
-     *
-     * If $PATH is unset/empty it defaults to '/usr/sbin:/usr/bin:/sbin:/bin'.
-     *
-     * @return string[]
-     */
-    public function pathDirs(): array
-    {
-        return $this->getEnvArray('PATH') ?: ['/usr/sbin', '/usr/bin', '/sbin', '/bin'];
-    }
-
-    /**
-     * Locate a command (an executable) in $PATH.
-     *
-     * Behaves like 'command -v COMMAND' or 'which COMMAND'.
-     * If $PATH is unset/empty it defaults to '/usr/sbin:/usr/bin:/sbin:/bin'.
-     *
-     * @param string $command the executable to locate
-     *
-     * @return string
-     */
-    public function which($command)
-    {
-        foreach ($this->pathDirs() as $path) {
-            $fullpath = $path.\DIRECTORY_SEPARATOR.$command;
-            if (@\is_file($fullpath) && @\is_executable($fullpath)) {
-                return $fullpath;
-            }
-        }
-
-        return null;
-    }
-
-    /**
      * Get all PsySH directory name candidates given a list of base directories.
      *
      * This expects that XDG-compatible directory paths will be passed in.
@@ -439,7 +405,7 @@ class ConfigPaths
     private function getEnvArray($key)
     {
         if ($value = $this->getEnv($key)) {
-            return \explode(\PATH_SEPARATOR, $value);
+            return \explode(':', $value);
         }
 
         return null;

@@ -40,9 +40,7 @@ class Userland implements Readline
      */
     public static function isSupported(): bool
     {
-        static::bootstrapHoa();
-
-        return HoaUstring::checkMbString() && HoaConsoleTput::isSupported();
+        return HoaUstring::checkMbString();
     }
 
     /**
@@ -58,7 +56,7 @@ class Userland implements Readline
      */
     public function __construct($historyFile = null, $historySize = 0, $eraseDups = false)
     {
-        static::bootstrapHoa(true);
+        static::bootstrapHoa();
 
         $this->hoaReadline = new HoaReadline();
         $this->hoaReadline->addMapping('\C-l', function () {
@@ -80,16 +78,11 @@ class Userland implements Readline
     /**
      * Bootstrap some things that Hoa used to do itself.
      */
-    public static function bootstrapHoa(bool $withTerminalResize = false)
+    public static function bootstrapHoa()
     {
-        // A side effect registers hoa:// stream wrapper
-        \class_exists('Psy\Readline\Hoa\ProtocolWrapper');
-
-        // A side effect registers hoa://Library/Stream
-        \class_exists('Psy\Readline\Hoa\Stream');
-
-        // A side effect binds terminal resize
-        $withTerminalResize && \class_exists('Psy\Readline\Hoa\ConsoleWindow');
+        \class_exists('Psy\Readline\Hoa\ProtocolWrapper'); // A side effect registers hoa:// stream wrapper
+        \class_exists('Psy\Readline\Hoa\Stream');          // A side effect registers hoa://Library/Stream
+        \class_exists('Psy\Readline\Hoa\ConsoleWindow');   // A side effect binds terminal resize
     }
 
     /**

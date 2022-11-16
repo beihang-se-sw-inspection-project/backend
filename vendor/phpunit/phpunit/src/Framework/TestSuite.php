@@ -13,7 +13,6 @@ use const PHP_EOL;
 use function array_keys;
 use function array_map;
 use function array_merge;
-use function array_slice;
 use function array_unique;
 use function basename;
 use function call_user_func;
@@ -39,7 +38,6 @@ use PHPUnit\Runner\BaseTestRunner;
 use PHPUnit\Runner\Filter\Factory;
 use PHPUnit\Runner\PhptTestCase;
 use PHPUnit\Util\FileLoader;
-use PHPUnit\Util\Reflection;
 use PHPUnit\Util\Test as TestUtil;
 use ReflectionClass;
 use ReflectionException;
@@ -221,7 +219,15 @@ class TestSuite implements IteratorAggregate, Reorderable, SelfDescribing, Test
             return;
         }
 
-        foreach ((new Reflection)->publicMethodsInTestClass($theClass) as $method) {
+        foreach ($theClass->getMethods() as $method) {
+            if ($method->getDeclaringClass()->getName() === Assert::class) {
+                continue;
+            }
+
+            if ($method->getDeclaringClass()->getName() === TestCase::class) {
+                continue;
+            }
+
             if (!TestUtil::isTestMethod($method)) {
                 continue;
             }
@@ -474,9 +480,7 @@ class TestSuite implements IteratorAggregate, Reorderable, SelfDescribing, Test
                         $this->addTest($method->invoke(null, $className));
                     }
                 } elseif ($class->implementsInterface(Test::class)) {
-                    // Do we have modern namespacing ('Foo\Bar\WhizBangTest') or old-school namespacing ('Foo_Bar_WhizBangTest')?
-                    $isPsr0            = (!$class->inNamespace()) && (strpos($class->getName(), '_') !== false);
-                    $expectedClassName = $isPsr0 ? $className : $shortName;
+                    $expectedClassName = $shortName;
 
                     if (($pos = strpos($expectedClassName, '.')) !== false) {
                         $expectedClassName = substr(

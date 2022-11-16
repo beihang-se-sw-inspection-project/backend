@@ -58,8 +58,12 @@ class Sudo
      *
      * @return mixed
      */
-    public static function callMethod($object, string $method, ...$args)
+    public static function callMethod($object, string $method, $args = null)
     {
+        $args = \func_get_args();
+        $object = \array_shift($args);
+        $method = \array_shift($args);
+
         $refl = new \ReflectionObject($object);
         $reflMethod = $refl->getMethod($method);
         $reflMethod->setAccessible(true);
@@ -109,8 +113,12 @@ class Sudo
      *
      * @return mixed
      */
-    public static function callStatic($class, string $method, ...$args)
+    public static function callStatic($class, string $method, $args = null)
     {
+        $args = \func_get_args();
+        $class = \array_shift($args);
+        $method = \array_shift($args);
+
         $refl = new \ReflectionClass($class);
         $reflMethod = $refl->getMethod($method);
         $reflMethod->setAccessible(true);
@@ -139,24 +147,6 @@ class Sudo
         } while ($refl !== false);
 
         return false;
-    }
-
-    /**
-     * Construct an instance of a class, bypassing private constructors.
-     *
-     * @param string $class   class name
-     * @param mixed  $args...
-     */
-    public static function newInstance(string $class, ...$args)
-    {
-        $refl = new \ReflectionClass($class);
-        $instance = $refl->newInstanceWithoutConstructor();
-
-        $constructor = $refl->getConstructor();
-        $constructor->setAccessible(true);
-        $constructor->invokeArgs($instance, $args);
-
-        return $instance;
     }
 
     /**
