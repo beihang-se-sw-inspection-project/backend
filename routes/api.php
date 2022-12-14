@@ -41,14 +41,14 @@ Route::prefix('v1')->group(function () {
         return response(['errors' => ['title' => 'Not found', 'detail' => 'Invalid or expired code.']], 404);
     });
 
-    // projects
-    Route::apiResource('projects', ProjectController::class);
+    // // projects
+    // Route::apiResource('projects', ProjectController::class);
 
-    // tasks
-    Route::apiResource('tasks', TaskController::class);
+    // // tasks
+    // Route::apiResource('tasks', TaskController::class);
 
-    // inspections
-    Route::apiResource('inspections', InspectionController::class);
+    // // inspections
+    // Route::apiResource('inspections', InspectionController::class);
 });
 
 /**

@@ -149,7 +149,7 @@ return [
                 'create' => [
                     'data.attributes.name' => 'required|string|max:32|regex:/^[a-zA-Z0-9 ]+$/|unique:users,name',
                     'data.attributes.email' => 'required|string|email|max:255|unique:users,email',
-                    'data.attributes.password' => 'required|string|confirmed|min:6|max:16',
+                    'data.attributes.password' => 'required|string|min:6|max:16',
                     'avatar' => 'sometimes|required|string',
                 ],
                 'update' => [
