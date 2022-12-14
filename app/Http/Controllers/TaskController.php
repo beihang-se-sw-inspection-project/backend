@@ -38,11 +38,7 @@ class TaskController extends Controller
      */
     public function store(JSONAPIRequest $request)
     {
-        return $this->service->createResource(Task::class, [
-            'name' => $request->input('data.attributes.name'),
-            'email' => $request->input('data.attributes.email'),
-            'password' => Hash::make(($request->input('data.attributes.password'))),
-        ]);
+        return $this->service->createResource(Task::class, $request->input('data.attributes'), $request->input('data.relationships'));
     }
 
     /**
