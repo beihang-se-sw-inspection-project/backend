@@ -2,20 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
 use App\Http\Requests\JSONAPIRequest;
+use App\Models\Project;
 use App\Services\JSONAPIService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Hash;
 
-
-class PostController extends Controller
+class UserController extends Controller
 {
-
-    protected function resourceMethodsWithoutModels()
-    {
-        return ['index', 'store', 'show'];
-    }
 
     /**
      * @var JSONAPIService
@@ -25,9 +19,7 @@ class PostController extends Controller
     public function __construct(JSONAPIService $service)
     {
         $this->service = $service;
-        // $this->authorizeResource(Post::class, 'posts');
     }
-
     /**
      * Display a listing of the resource.
      *
@@ -35,7 +27,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return $this->service->fetchResources(Post::class, 'posts');
+        return $this->service->fetchResources(Project::class, 'projects');
     }
 
     /**
@@ -46,46 +38,51 @@ class PostController extends Controller
      */
     public function store(JSONAPIRequest $request)
     {
-        $attributes = $request->input('data.attributes');
-        $attributes["user_id"] = $request->user()->id;
-
-       return $this->service->createResource(Post::class, $attributes, $request->input('data.relationships'));
+        return $this->service->createResource(Project::class, [
+            'name' => $request->input('data.attributes.name'),
+            'email' => $request->input('data.attributes.email'),
+            'password' => Hash::make(($request->input('data.attributes.password'))),
+        ]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Post  $post
+     * @param  int  $project
      * @return \Illuminate\Http\Response
      */
-    public function show($post)
+    public function show($project)
     {
-        return $this->service->fetchResource(Post::class, $post, 'posts');
+        return $this->service->fetchResource(Project::class, $project, 'projects');
     }
-
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Post  $post
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(JSONAPIRequest $request, Post $post)
+    public function update(JSONAPIRequest $request, Project $project)
     {
-        return $this->service->updateResource($post, $request->input('data.attributes'), $request->input('data.relationships'));
+        $attributes = $request->input('data.attributes');
+
+        if (!empty($attributes['password'])) {
+            $attributes['password'] = Hash::make($attributes['password']);
+        }
+
+        return $this->service->updateResource($project, $attributes);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Post  $post
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy(Project $project)
     {
-    
-       return $this->service->deleteResource($post);
-       
+        return $this->service->deleteResource($project);
     }
+
 }

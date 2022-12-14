@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\JSONAPIRequest;
-use App\Models\Comment;
-use App\Models\User;
+use App\Models\Task;
 use App\Services\JSONAPIService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
-class CommentController extends Controller
+class TaskController extends Controller
 {
+
     /**
      * @var JSONAPIService
      */
@@ -19,7 +20,6 @@ class CommentController extends Controller
     {
         $this->service = $service;
     }
-
     /**
      * Display a listing of the resource.
      *
@@ -27,7 +27,7 @@ class CommentController extends Controller
      */
     public function index()
     {
-        return $this->service->fetchResources(Comment::class, 'comments');
+        return $this->service->fetchResources(Task::class, 'tasks');
     }
 
     /**
@@ -38,43 +38,51 @@ class CommentController extends Controller
      */
     public function store(JSONAPIRequest $request)
     {
-        $attributes = $request->input('data.attributes');
-        $attributes["user_id"] = $request->user()->id;
-
-       return $this->service->createResource(Comment::class, $attributes, $request->input('data.relationships'));
+        return $this->service->createResource(Task::class, [
+            'name' => $request->input('data.attributes.name'),
+            'email' => $request->input('data.attributes.email'),
+            'password' => Hash::make(($request->input('data.attributes.password'))),
+        ]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Comment  $comment
+     * @param  int  $task
      * @return \Illuminate\Http\Response
      */
-    public function show($comment)
+    public function show($task)
     {
-        return $this->service->fetchResource(Comment::class, $comment, 'comments');
+        return $this->service->fetchResource(Task::class, $task, 'tasks');
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Comment  $comment
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(JSONAPIRequest $request, Comment $comment)
+    public function update(JSONAPIRequest $request, Task $task)
     {
-        return $this->service->updateResource($comment, $request->input('data.attributes'), $request->input('data.relationships'));
+        $attributes = $request->input('data.attributes');
+
+        if (!empty($attributes['password'])) {
+            $attributes['password'] = Hash::make($attributes['password']);
+        }
+
+        return $this->service->updateResource($task, $attributes);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Comment  $comment
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Comment $comment)
+    public function destroy(Task $task)
     {
-        return $this->service->deleteResource($comment);
+        return $this->service->deleteResource($task);
     }
+
 }
