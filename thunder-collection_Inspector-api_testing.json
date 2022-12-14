@@ -1,0 +1,131 @@
+{
+  "client": "Thunder Client",
+  "collectionName": "Inspector",
+  "dateExported": "2022-12-14T14:48:29.938Z",
+  "version": "1.1",
+  "folders": [],
+  "requests": [
+    {
+      "_id": "ad48711e-7fb6-4180-a49b-738ad49e42cf",
+      "colId": "5eb17629-44de-4afa-91cf-caf2e9504550",
+      "containerId": "",
+      "name": "create project",
+      "url": "https://bhinspector.2times180.com/public/api/v1/projects",
+      "method": "POST",
+      "sortNum": 10000,
+      "created": "2022-12-14T14:25:31.914Z",
+      "modified": "2022-12-14T14:48:05.459Z",
+      "headers": [
+        { "name": "Accept", "value": "application/vnd.api+json" },
+        { "name": "Content-Type", "value": "application/vnd.api+json" },
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYjQ1Y2JlODRiZTFhZWUyNTM4MGY2MTM4NTdkY2YwMGY0NjUzMjQzNDRiM2VkNGE1MTgwMWI3NDQyZDYwN2QyMjg1NmQ4YWJhZmI1NWRlYmIiLCJpYXQiOjE2NzEwMjg3MjAsIm5iZiI6MTY3MTAyODcyMCwiZXhwIjoxNzAyNTY0NzIwLCJzdWIiOiI3YmZmODdjOC01NzdkLTRhODYtYWI5ZS1kNTA0NzEyNDUyNGQiLCJzY29wZXMiOltdfQ.f1vGdBOAUwIt8Z7JDUqmVCOq_t2U8rPrWgrN_yyFs_ckHzs9GIw2Owl6phWg_o-usM_v0x9ZfupGGQfkbYlQ2qOAO0xB6YeU1OmxhRN2SkfkBl8PU5pWmkDuqjAoIDnM6tMY1n_7zW9Ee-skl6uAirm4vQKJLIp2sUZXgzy3R2Ky8S8FPYQQGSjNQ8HX7qMWtGExPDuGJ-EHtSfmJRBSSet9pxWiVV1OfSWmZtLibzkvlBqnd6mI3moIbkg7vR0zacKtvUggqI_LiWwm7LgzeijGcInULxnYJ2xe6fQpiagt9V_AtekHJy_rNZefs2oex1v3FCnAIqGqIPJbNlNIjBPSJSlhEJISvxo-WeynM7g0YkB1Ej1xSNYhKUzDr8T5EAT1HZ79OQb59rtPuVr1Ze_GOeWr6SlcXr439YJrqDHNpNKbu4dUU5fMfX6bOYHWz5KTSn_i2MQCOuMXlyHZwZzkv76OFhxwKzuBKJrjdJmTxe-z3JHxIOhpU5XmaFTLjVdpBeaufhErRvrx20_5xnvN1CC4gTES6mDlafN5jGzNe9qD0OCf0GYhg-N7e5RcnySqqSikBJdJn97-mJgR85QFdoK1VuYa8Ko8iJakd5SfDt7h0iTimm0FU8sIuIkQmlRKCyQd4-3YzraBM9Z1iaBgGwxVhGl9RAqKk2SddaQ"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"data\": {\n    \"type\": \"projects\",\n    \"attributes\": {\n      \"project_name\": \"My other project\",\n      \"project_manager\": \"123456\",\n      \"assignee\":\"Brandy\",\n      \"date\":\"2022/10/07\",\n      \"priority\":\"4\",\n      \"overview\":\"once upon a time\",\n      \"to_do\":\"this is to do\"\n    }\n  }\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "113e0995-28e0-4de7-8bcd-29465e7426c6",
+      "colId": "5eb17629-44de-4afa-91cf-caf2e9504550",
+      "containerId": "",
+      "name": "get project",
+      "url": "https://bhinspector.2times180.com/public/api/v1/projects/1",
+      "method": "GET",
+      "sortNum": 15000,
+      "created": "2022-12-14T14:47:09.194Z",
+      "modified": "2022-12-14T14:47:33.354Z",
+      "headers": [
+        { "name": "Accept", "value": "application/vnd.api+json" },
+        { "name": "Content-Type", "value": "application/vnd.api+json" },
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYjQ1Y2JlODRiZTFhZWUyNTM4MGY2MTM4NTdkY2YwMGY0NjUzMjQzNDRiM2VkNGE1MTgwMWI3NDQyZDYwN2QyMjg1NmQ4YWJhZmI1NWRlYmIiLCJpYXQiOjE2NzEwMjg3MjAsIm5iZiI6MTY3MTAyODcyMCwiZXhwIjoxNzAyNTY0NzIwLCJzdWIiOiI3YmZmODdjOC01NzdkLTRhODYtYWI5ZS1kNTA0NzEyNDUyNGQiLCJzY29wZXMiOltdfQ.f1vGdBOAUwIt8Z7JDUqmVCOq_t2U8rPrWgrN_yyFs_ckHzs9GIw2Owl6phWg_o-usM_v0x9ZfupGGQfkbYlQ2qOAO0xB6YeU1OmxhRN2SkfkBl8PU5pWmkDuqjAoIDnM6tMY1n_7zW9Ee-skl6uAirm4vQKJLIp2sUZXgzy3R2Ky8S8FPYQQGSjNQ8HX7qMWtGExPDuGJ-EHtSfmJRBSSet9pxWiVV1OfSWmZtLibzkvlBqnd6mI3moIbkg7vR0zacKtvUggqI_LiWwm7LgzeijGcInULxnYJ2xe6fQpiagt9V_AtekHJy_rNZefs2oex1v3FCnAIqGqIPJbNlNIjBPSJSlhEJISvxo-WeynM7g0YkB1Ej1xSNYhKUzDr8T5EAT1HZ79OQb59rtPuVr1Ze_GOeWr6SlcXr439YJrqDHNpNKbu4dUU5fMfX6bOYHWz5KTSn_i2MQCOuMXlyHZwZzkv76OFhxwKzuBKJrjdJmTxe-z3JHxIOhpU5XmaFTLjVdpBeaufhErRvrx20_5xnvN1CC4gTES6mDlafN5jGzNe9qD0OCf0GYhg-N7e5RcnySqqSikBJdJn97-mJgR85QFdoK1VuYa8Ko8iJakd5SfDt7h0iTimm0FU8sIuIkQmlRKCyQd4-3YzraBM9Z1iaBgGwxVhGl9RAqKk2SddaQ"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"data\": {\n    \"type\": \"projects\",\n    \"attributes\": {\n      \"project_name\": \"who3@email.com\",\n      \"project_manager\": \"123456\",\n      \"assignee\":\"Brandy\",\n      \"date\":\"2022/10/07\",\n      \"priority\":\"4\",\n      \"overview\":\"once upon a time\",\n      \"to_do\":\"this is to do\"\n    }\n  }\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "aea3a8d6-91c9-4bdc-934c-aec19cf939f0",
+      "colId": "5eb17629-44de-4afa-91cf-caf2e9504550",
+      "containerId": "",
+      "name": "get projects",
+      "url": "https://bhinspector.2times180.com/public/api/v1/projects",
+      "method": "GET",
+      "sortNum": 17500,
+      "created": "2022-12-14T14:47:37.282Z",
+      "modified": "2022-12-14T14:47:50.051Z",
+      "headers": [
+        { "name": "Accept", "value": "application/vnd.api+json" },
+        { "name": "Content-Type", "value": "application/vnd.api+json" },
+        {
+          "name": "Authorization",
+          "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYjQ1Y2JlODRiZTFhZWUyNTM4MGY2MTM4NTdkY2YwMGY0NjUzMjQzNDRiM2VkNGE1MTgwMWI3NDQyZDYwN2QyMjg1NmQ4YWJhZmI1NWRlYmIiLCJpYXQiOjE2NzEwMjg3MjAsIm5iZiI6MTY3MTAyODcyMCwiZXhwIjoxNzAyNTY0NzIwLCJzdWIiOiI3YmZmODdjOC01NzdkLTRhODYtYWI5ZS1kNTA0NzEyNDUyNGQiLCJzY29wZXMiOltdfQ.f1vGdBOAUwIt8Z7JDUqmVCOq_t2U8rPrWgrN_yyFs_ckHzs9GIw2Owl6phWg_o-usM_v0x9ZfupGGQfkbYlQ2qOAO0xB6YeU1OmxhRN2SkfkBl8PU5pWmkDuqjAoIDnM6tMY1n_7zW9Ee-skl6uAirm4vQKJLIp2sUZXgzy3R2Ky8S8FPYQQGSjNQ8HX7qMWtGExPDuGJ-EHtSfmJRBSSet9pxWiVV1OfSWmZtLibzkvlBqnd6mI3moIbkg7vR0zacKtvUggqI_LiWwm7LgzeijGcInULxnYJ2xe6fQpiagt9V_AtekHJy_rNZefs2oex1v3FCnAIqGqIPJbNlNIjBPSJSlhEJISvxo-WeynM7g0YkB1Ej1xSNYhKUzDr8T5EAT1HZ79OQb59rtPuVr1Ze_GOeWr6SlcXr439YJrqDHNpNKbu4dUU5fMfX6bOYHWz5KTSn_i2MQCOuMXlyHZwZzkv76OFhxwKzuBKJrjdJmTxe-z3JHxIOhpU5XmaFTLjVdpBeaufhErRvrx20_5xnvN1CC4gTES6mDlafN5jGzNe9qD0OCf0GYhg-N7e5RcnySqqSikBJdJn97-mJgR85QFdoK1VuYa8Ko8iJakd5SfDt7h0iTimm0FU8sIuIkQmlRKCyQd4-3YzraBM9Z1iaBgGwxVhGl9RAqKk2SddaQ"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"data\": {\n    \"type\": \"projects\",\n    \"attributes\": {\n      \"project_name\": \"who3@email.com\",\n      \"project_manager\": \"123456\",\n      \"assignee\":\"Brandy\",\n      \"date\":\"2022/10/07\",\n      \"priority\":\"4\",\n      \"overview\":\"once upon a time\",\n      \"to_do\":\"this is to do\"\n    }\n  }\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "b4331616-d191-4fbf-a8a9-8fd3ad5fc877",
+      "colId": "5eb17629-44de-4afa-91cf-caf2e9504550",
+      "containerId": "",
+      "name": "login user",
+      "url": "https://bhinspector.2times180.com/public/api/v1/noauth/auth",
+      "method": "POST",
+      "sortNum": 20000,
+      "created": "2022-12-14T14:25:39.849Z",
+      "modified": "2022-12-14T14:38:41.912Z",
+      "headers": [
+        { "name": "Accept", "value": "application/vnd.api+json" },
+        { "name": "Content-Type", "value": "application/vnd.api+json" }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"data\": {\n    \"type\": \"auth\",\n    \"attributes\": {\n      \"email\": \"who3@email.com\",\n      \"password\": \"123456\"\n    }\n  }\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "e926d2df-7577-4ddc-ba69-4f510af2cd0f",
+      "colId": "5eb17629-44de-4afa-91cf-caf2e9504550",
+      "containerId": "",
+      "name": "create user",
+      "url": "https://bhinspector.2times180.com/public/api/v1/noauth/auth",
+      "method": "POST",
+      "sortNum": 30000,
+      "created": "2022-12-14T14:26:02.568Z",
+      "modified": "2022-12-14T14:37:52.114Z",
+      "headers": [
+        { "name": "Accept", "value": "application/vnd.api+json" },
+        { "name": "Content-Type", "value": "application/vnd.api+json" }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"data\": {\n    \"type\": \"users\",\n    \"attributes\": {\n      \"name\": \"who3\",\n      \"email\": \"who3@email.com\",\n      \"role\": \"dev\",\n      \"password\": \"123456\"\n    }\n  }\n}",
+        "form": []
+      },
+      "tests": []
+    }
+  ]
+}
