@@ -40,15 +40,6 @@ Route::prefix('v1')->group(function () {
     Route::apiResource('noauth/passwordresetcode', APIForgotPasswordController::class)->missing(function () {
         return response(['errors' => ['title' => 'Not found', 'detail' => 'Invalid or expired code.']], 404);
     });
-
-    // // projects
-    // Route::apiResource('projects', ProjectController::class);
-
-    // // tasks
-    // Route::apiResource('tasks', TaskController::class);
-
-    // // inspections
-    // Route::apiResource('inspections', InspectionController::class);
 });
 
 /**
