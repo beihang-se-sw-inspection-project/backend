@@ -29,7 +29,7 @@ class User extends Authenticatable
     ];
 
     protected $attributes = [
-        'role' => 'user',
+        //'role' => 'user',
     ];
 
     public $incrementing = false;
