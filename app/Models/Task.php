@@ -13,6 +13,7 @@ class Task extends AbstractAPIModel
         'status',
         'deadline',
         'priority',
+        'title',
         'task_detail',
     ];
 
