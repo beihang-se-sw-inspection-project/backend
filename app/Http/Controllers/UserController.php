@@ -44,6 +44,7 @@ class UserController extends Controller
         return $this->service->createResource(User::class, [
             'name' => $request->input('data.attributes.name'),
             'email' => $request->input('data.attributes.email'),
+            'role' => $request->input('data.attributes.role'),
             'password' => Hash::make(($request->input('data.attributes.password'))),
         ]);
     }
