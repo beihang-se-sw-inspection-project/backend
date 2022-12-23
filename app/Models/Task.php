@@ -9,8 +9,11 @@ class Task extends AbstractAPIModel
     use HasFactory;
 
     protected $fillable = [
-        'report',
+        'project_id',
         'status',
+        'deadline',
+        'priority',
+        'task_detail',
     ];
 
     public function type()
