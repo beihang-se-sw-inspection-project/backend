@@ -6,13 +6,13 @@ return [
      * The maximum number of results that will be returned
      * when using the JSON API paginator.
      */
-    'max_results' => 10,
+    'max_results' => 50,
 
     /*
      * The default number of results that will be returned
      * when using the JSON API paginator.
      */
-    'default_size' => 30,
+    'default_size' => 50,
 
     /*
      * The key of the page[x] query string parameter for page number.
