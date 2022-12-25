@@ -87,7 +87,7 @@ return [
             ],
             'validationRules' => [
                 'create' => [
-
+                    'data.attributes.assignee' => 'required|string',
                     'data.attributes.project_id' => 'required|string',
                     'data.attributes.status' => 'required|string',
                     'data.attributes.deadline' => 'required|string',
@@ -95,6 +95,7 @@ return [
                     'data.attributes.task_detail' => 'required|string',
                 ],
                 'update' => [
+                    'data.attributes.assignee' => 'sometimes|required|string',
                     'data.attributes.project_id' => 'sometimes|required|string',
                     'data.attributes.status' => 'sometimes|required|string',
                     'data.attributes.deadline' => 'sometimes|required|string',

@@ -9,6 +9,7 @@ class Task extends AbstractAPIModel
     use HasFactory;
 
     protected $fillable = [
+        'assignee',
         'project_id',
         'status',
         'deadline',
