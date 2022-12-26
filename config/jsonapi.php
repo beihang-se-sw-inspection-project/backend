@@ -121,11 +121,13 @@ return [
             ],
             'validationRules' => [
                 'create' => [
-
+                    
+                    'data.attributes.task_id' => 'required|string',
                     'data.attributes.report' => 'required|string',
                     'data.attributes.status' => 'required|string',
                 ],
                 'update' => [
+                    'data.attributes.task_id' => 'sometimes|required|string',
                     'data.attributes.report' => 'sometimes|required|string',
                     'data.attributes.status' => 'sometimes|required|string',
                 ],
