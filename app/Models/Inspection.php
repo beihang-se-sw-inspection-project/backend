@@ -9,12 +9,10 @@ class Inspection extends AbstractAPIModel
 {
     use HasFactory;
 
-    protected $fillable = [
-        'project_id',
+    protected $fillable = [       
+        'task_id',
+        'report',
         'status',
-        'deadline',
-        'priority',
-        'task_detail'
     ];
 
     public function type()
