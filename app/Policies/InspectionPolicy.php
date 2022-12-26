@@ -53,7 +53,7 @@ class InspectionPolicy
      */
     public function update(User $user, Inspection $inspection)
     {
-        //
+        return true;
     }
 
     /**
@@ -65,7 +65,7 @@ class InspectionPolicy
      */
     public function delete(User $user, Inspection $inspection)
     {
-        //
+        return true;
     }
 
     /**
@@ -89,6 +89,6 @@ class InspectionPolicy
      */
     public function forceDelete(User $user, Inspection $inspection)
     {
-        //
+        return true;
     }
 }
