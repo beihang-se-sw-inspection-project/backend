@@ -16,6 +16,9 @@ class Task extends AbstractAPIModel
         'priority',
         'title',
         'task_detail',
+        'inspector',
+        'project_manager',
+        'report',
     ];
 
     public function type()

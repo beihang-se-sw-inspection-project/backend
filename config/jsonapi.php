@@ -93,6 +93,10 @@ return [
                     'data.attributes.deadline' => 'required|string',
                     'data.attributes.priority' => 'required|string',
                     'data.attributes.task_detail' => 'required|string',
+
+                    'data.attributes.inspector' => 'required|string',
+                    'data.attributes.project_manager' => 'required|string',
+                    'data.attributes.report' => 'sometimes|required|string',
                 ],
                 'update' => [
                     'data.attributes.assignee' => 'sometimes|required|string',
@@ -121,7 +125,7 @@ return [
             ],
             'validationRules' => [
                 'create' => [
-                    
+
                     'data.attributes.task_id' => 'required|string',
                     'data.attributes.report' => 'required|string',
                     'data.attributes.status' => 'required|string',
@@ -159,7 +163,7 @@ return [
                 'update' => [
                     'data.attributes.name' => 'sometimes|required|string|max:32|regex:/^[a-zA-Z0-9 ]+$/|unique:users,name',
                     'data.attributes.email' => 'sometimes|required|email||max:255|unique:users,email',
-                   'data.attributes.role' => 'sometimes|required|string', 'data.attributes.password' => 'sometimes|required|string|min:6|max:16',
+                    'data.attributes.role' => 'sometimes|required|string', 'data.attributes.password' => 'sometimes|required|string|min:6|max:16',
                     'avatar' => 'sometimes|required|string',
                 ],
             ],

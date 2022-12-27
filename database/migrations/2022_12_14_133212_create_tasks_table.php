@@ -23,6 +23,10 @@ class CreateTasksTable extends Migration
             $table->string('priority');
             $table->text('title');
             $table->text('task_detail');
+
+            $table->string('inspector');
+            $table->string('project_manager');
+            $table->text('report')->nullable();
             
             $table->timestamps();
         });
